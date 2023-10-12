@@ -3,4 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://du1ffm86kpgiy" path="res://assets/Lightmaps/torchmap.png" id="1_j0f72"]
 
 [node name="Torch" type="PointLight2D"]
+shadow_enabled = true
+shadow_filter = 2
 texture = ExtResource("1_j0f72")
+offset = Vector2(330, 0)
