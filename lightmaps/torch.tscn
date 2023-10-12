@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx0c1ugu5hwoq"]
+
+[ext_resource type="Texture2D" uid="uid://du1ffm86kpgiy" path="res://assets/Lightmaps/torchmap.png" id="1_j0f72"]
+
+[node name="Torch" type="PointLight2D"]
+texture = ExtResource("1_j0f72")
