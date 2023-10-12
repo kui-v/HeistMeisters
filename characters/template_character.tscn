@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://r7ssx37dnral"]
+[gd_scene load_steps=5 format=3 uid="uid://r7ssx37dnral"]
 
 [ext_resource type="Texture2D" uid="uid://3c2y48k4ypje" path="res://assets/GFX/PNG/Man Red/manRed_stand.png" id="1_hmq7w"]
 [ext_resource type="Script" path="res://characters/template_character.gd" id="1_ormqf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geuif"]
 height = 44.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hqyqq"]
+cull_mode = 1
+polygon = PackedVector2Array(-9, -19, -12, -15, -12, -10, -12, 7, -12, 14, -9, 19, -2, 22, 5, 20, 7, 16, 9, 8, 9, 0, 9, -7, 8, -15, 4, -20, 0, -22, -5, -22)
 
 [node name="TemplateCharacter" type="CharacterBody2D"]
 script = ExtResource("1_ormqf")
@@ -15,3 +19,6 @@ texture = ExtResource("1_hmq7w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_geuif")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_hqyqq")

@@ -21,3 +21,8 @@ func update_movement():
 		velocity.x = clamp(velocity.x - SPEED, -MAX_SPEED, 0)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, FRICTION)
+
+
+func _input(event):
+	if Input.is_action_just_pressed("torch_toggle"):
+		$Torch.enabled = not $Torch.enabled

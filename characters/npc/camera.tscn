@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgt7tdyor61nv"]
+
+[ext_resource type="Texture2D" uid="uid://crjuirg3udxyv" path="res://assets/GFX/PNG/Tiles/tile_463.png" id="1_g4wp4"]
+[ext_resource type="Texture2D" uid="uid://dkdmv86kqtqb1" path="res://assets/GFX/PNG/Tiles/tile_536.png" id="2_kninq"]
+[ext_resource type="PackedScene" uid="uid://dx0c1ugu5hwoq" path="res://lightmaps/torch.tscn" id="3_6y853"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmxx"]
+
+[sub_resource type="Animation" id="Animation_6r2mq"]
+resource_name = "camera_rotation"
+length = 12.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 0.872665, 0.872665, 1.5708, 2.26893, 2.26893, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eputr"]
+_data = {
+"camera_rotation": SubResource("Animation_6r2mq")
+}
+
+[node name="Camera" type="Node2D"]
+
+[node name="ArmSprite" type="Sprite2D" parent="."]
+position = Vector2(7, 0)
+scale = Vector2(0.28125, 0.5)
+texture = ExtResource("1_g4wp4")
+
+[node name="CameraBody" type="CharacterBody2D" parent="."]
+position = Vector2(26, 0)
+rotation = 0.981748
+metadata/_edit_group_ = true
+
+[node name="BodySprite" type="Sprite2D" parent="CameraBody"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_kninq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBody"]
+shape = SubResource("RectangleShape2D_ogmxx")
+disabled = true
+
+[node name="Torch" parent="CameraBody" instance=ExtResource("3_6y853")]
+rotation = -1.5708
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraBody"]
+autoplay = "camera_rotation"
+libraries = {
+"": SubResource("AnimationLibrary_eputr")
+}
