@@ -23,11 +23,5 @@ position = Vector2(106, -28)
 [node name="Cameras" type="Node" parent="."]
 
 [node name="Camera" parent="Cameras" instance=ExtResource("4_slugx")]
-position = Vector2(-452, 447)
-rotation = -0.785398
-scale = Vector2(1, 1)
-
-[node name="Camera2" parent="Cameras" instance=ExtResource("4_slugx")]
-position = Vector2(386, 130)
-rotation = 2.25946
-scale = Vector2(1, 1)
+position = Vector2(-447, 132)
+rotation = 0.968286
