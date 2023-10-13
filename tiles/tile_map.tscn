@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpcmo5f3dm43a"]
+[gd_scene load_steps=12 format=3 uid="uid://bpcmo5f3dm43a"]
 
 [ext_resource type="Texture2D" uid="uid://dav3kcox2p62e" path="res://assets/GFX/Tilesheet/tilesheet_complete.png" id="1_ekbv7"]
 
@@ -7,6 +7,18 @@ polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tvokd"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qasvd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nly1v"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_raij4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5idh2"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jli38"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_18qvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3vcnd"]
 texture = ExtResource("1_ekbv7")
@@ -542,38 +554,45 @@ texture_region_size = Vector2i(64, 64)
 14:3/0/terrain = 0
 14:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:3/0/physics_layer_0/angular_velocity = 0.0
+14:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qasvd")
 16:3/0 = 0
 16:3/0/terrain_set = 1
 16:3/0/terrain = 0
 16:3/0/probability = 0.5
 16:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:3/0/physics_layer_0/angular_velocity = 0.0
+16:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_raij4")
 18:3/0 = 0
 18:3/0/terrain_set = 1
 18:3/0/terrain = 0
 18:3/0/probability = 0.5
 18:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:3/0/physics_layer_0/angular_velocity = 0.0
+18:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jli38")
 15:3/0 = 0
 15:3/0/terrain_set = 1
 15:3/0/terrain = 1
 15:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:3/0/physics_layer_0/angular_velocity = 0.0
+15:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_nly1v")
 17:3/0 = 0
 17:3/0/terrain_set = 1
 17:3/0/terrain = 1
 17:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:3/0/physics_layer_0/angular_velocity = 0.0
+17:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_5idh2")
 19:3/0 = 0
 19:3/0/terrain_set = 1
 19:3/0/terrain = 1
 19:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:3/0/physics_layer_0/angular_velocity = 0.0
+19:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_18qvf")
 
 [sub_resource type="TileSet" id="TileSet_ramvh"]
 tile_size = Vector2i(64, 64)
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 5
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.701961, 0.0431373, 0.341176, 1)
@@ -582,6 +601,7 @@ terrain_set_1/terrain_0/name = "FloorHorizontal"
 terrain_set_1/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_1/terrain_1/name = "FloorVertical"
 terrain_set_1/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_3vcnd")
 
 [node name="TileMap" type="TileMap"]

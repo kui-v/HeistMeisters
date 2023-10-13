@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyd3v06tlo2mp"]
+
+[ext_resource type="PackedScene" uid="uid://r7ssx37dnral" path="res://characters/template_character.tscn" id="1_xvmww"]
+[ext_resource type="Texture2D" uid="uid://b4oyypnyy6vlf" path="res://assets/GFX/PNG/Soldier 1/soldier1_stand.png" id="2_ij7di"]
+[ext_resource type="Script" path="res://characters/npc/soldier.gd" id="2_kbgfx"]
+[ext_resource type="PackedScene" uid="uid://dx0c1ugu5hwoq" path="res://lightmaps/torch.tscn" id="3_i1ij5"]
+
+[node name="Soldier" instance=ExtResource("1_xvmww")]
+script = ExtResource("2_kbgfx")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ij7di")
+
+[node name="Torch" parent="." index="3" instance=ExtResource("3_i1ij5")]
+position = Vector2(10, 0)
+offset = Vector2(320, 0)
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
