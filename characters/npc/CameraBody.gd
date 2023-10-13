@@ -8,9 +8,6 @@ var Player # capital P player for object Player
 
 func _ready():
 	Player = get_node("../../../Player") # camera should always be in Level/Cameras/Camera
-#	print(get_node("../../../Player").name)
-#	Player = get_node("../Player")
-#	print(get_tree().get_root().get_children()[0].name)
 
 
 func _process(delta):
@@ -21,8 +18,8 @@ func _process(delta):
 
 
 func Player_in_fov():
-	var npc_facing_direction : Vector2 = Vector2(1,0).rotated(global_rotation)
-	var direction_to_Player : Vector2 = (Player.position - global_position).normalized()
+	var npc_facing_direction : Vector2 = Vector2(1,0).rotated(global_rotation) #camera's direction
+	var direction_to_Player : Vector2 = (Player.position - global_position).normalized() #angle to Player from camera
 	if abs(direction_to_Player.angle_to(npc_facing_direction)) < deg_to_rad(FOV_TOLERANCE):
 		return true
 	else:

@@ -58,10 +58,3 @@ autoplay = "camera_pan"
 libraries = {
 "": SubResource("AnimationLibrary_nogvp")
 }
-
-[node name="Label" type="Label" parent="."]
-offset_left = -6.0
-offset_top = 11.0
-offset_right = 34.0
-offset_bottom = 37.0
-text = "Text"
