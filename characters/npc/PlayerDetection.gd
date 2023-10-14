@@ -34,7 +34,6 @@ func Player_in_fov():
 		return true
 	else:
 		return false
-#	return true
 
 
 func Player_in_los():
@@ -50,4 +49,3 @@ func Player_in_los():
 			return true
 		else:
 			return false
-#	return true

@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dx0c1ugu5hwoq" path="res://lightmaps/torch.tscn" id="3_i1ij5"]
 
 [node name="Soldier" instance=ExtResource("1_xvmww")]
+collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("2_nxb2p")
+minimum_arrival_distance = 100.0
+walk_speed = 50.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_ij7di")
@@ -18,8 +21,13 @@ position = Vector2(10, 0)
 offset = Vector2(320, 0)
 
 [node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 3.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+path_postprocessing = 1
 debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
