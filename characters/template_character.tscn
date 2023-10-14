@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://3c2y48k4ypje" path="res://assets/GFX/PNG/Man Red/manRed_stand.png" id="1_hmq7w"]
 [ext_resource type="Script" path="res://characters/template_character.gd" id="1_ormqf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_geuif"]
-height = 44.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_kf3tf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hqyqq"]
 cull_mode = 1
@@ -18,7 +17,7 @@ texture = ExtResource("1_hmq7w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
-shape = SubResource("CapsuleShape2D_geuif")
+shape = SubResource("CircleShape2D_kf3tf")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_hqyqq")

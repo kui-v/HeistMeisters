@@ -56,18 +56,20 @@ position = Vector2(-191, 344)
 
 [node name="Soldier" parent="Guards" index="0" instance=ExtResource("3_xqgew")]
 position = Vector2(256, 160)
-rotation = -1.58003
-minimum_arrival_distance = 100.0
-walk_speed = 50.0
+rotation = -1.5708
+
+[node name="Soldier2" parent="Guards" index="1" instance=ExtResource("3_xqgew")]
+position = Vector2(-282, -52)
+rotation = 1.5708
 
 [node name="Camera" parent="Cameras" index="0" instance=ExtResource("2_wkdta")]
 position = Vector2(-385, -510)
-rotation = 0.85725
+rotation = 0.785398
 
 [node name="Camera2" parent="Cameras" index="1" instance=ExtResource("2_wkdta")]
 position = Vector2(-61, -132)
-rotation = -0.850555
+rotation = -0.785398
 
 [node name="Camera3" parent="Cameras" index="2" instance=ExtResource("2_wkdta")]
 position = Vector2(-385, 131)
-rotation = 0.999985
+rotation = 0.785398

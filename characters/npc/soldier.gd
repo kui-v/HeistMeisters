@@ -47,6 +47,9 @@ func _physics_process(delta):
 		
 		rotation = lerp_angle(rotation, current_agent_position.angle_to_point(next_path_position), delta * SMOOTH_SPEED)
 		move_and_slide()
+		
+		if is_on_wall(): # if hit obstacle, choose another path
+			make_path()
 
 
 func make_path():
@@ -56,7 +59,7 @@ func make_path():
 
 
 func _on_timer_timeout():
-	$Timer.stop()
+	$Timer.stop() # same as having one-shot selected in Timer
 	make_path()
 
 
