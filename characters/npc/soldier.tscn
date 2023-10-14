@@ -19,4 +19,7 @@ offset = Vector2(320, 0)
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
+debug_enabled = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

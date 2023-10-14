@@ -14,11 +14,13 @@ func _ready():
 #		Player = get_node("../../../Player") # camera should always be in Level/Cameras/Camera
 #	else:
 #		Player = get_node("../../Player")
-	print(get_tree().get_root().get_children()[0].get_node("Player"))
+#	print(get_tree().get_root().get_children()[0].get_node("Player"))
 	Player = get_tree().get_root().get_children()[0].get_node("Player")
-	
+
 
 func _process(delta):
+	if Player == null:
+		Player = get_tree().get_root().get_children()[0].get_node("Player")
 	if Player_in_fov() and Player_in_los():
 		$Torch.color = RED
 	else:
@@ -32,6 +34,7 @@ func Player_in_fov():
 		return true
 	else:
 		return false
+#	return true
 
 
 func Player_in_los():
@@ -47,3 +50,4 @@ func Player_in_los():
 			return true
 		else:
 			return false
+#	return true
