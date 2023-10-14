@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dx0c1ugu5hwoq" path="res://lightmaps/torch.tscn" id="3_i1ij5"]
 
 [node name="Soldier" instance=ExtResource("1_xvmww")]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("2_nxb2p")
 
 [node name="Sprite2D" parent="." index="0"]
