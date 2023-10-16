@@ -5,22 +5,11 @@ const MAX_DETECTION_RANGE : int = 640
 const RED : Color = Color(1.0,0.25,0.25)
 const WHITE : Color = Color(1.0,1.0,1.0)
 
-var Player : CharacterBody2D # capital P player for object Player
-
-func _ready():
-#	for i in .get_children():
-#		print(i.name)
-#	if get_node("../..").name == "Cameras":
-#		Player = get_node("../../../Player") # camera should always be in Level/Cameras/Camera
-#	else:
-#		Player = get_node("../../Player")
-#	print(get_tree().get_root().get_children()[0].get_node("Player"))
-	Player = get_tree().get_root().get_children()[0].get_node("Player")
+# capital P player for object Player
+@onready var Player : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 
 func _process(delta):
-	if Player == null:
-		Player = get_tree().get_root().get_children()[0].get_node("Player")
 	if Player_in_fov() and Player_in_los():
 		$Torch.color = RED
 	else:

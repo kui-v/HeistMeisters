@@ -8,7 +8,7 @@
 extends "res://characters/npc/PlayerDetection.gd"
 
 @onready var navigation_agent : NavigationAgent2D = get_node("NavigationAgent2D")
-@onready var destinations : Node = get_tree().get_root().get_children()[0].get_node("Destinations")
+@onready var destinations : Node = get_tree().get_first_node_in_group("Destinations")
 
 @export var minimum_arrival_distance : float = 100.0
 @export var walk_speed : float = 50
@@ -22,6 +22,7 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	navigation_agent.path_postprocessing = NavigationPathQueryParameters2D.PATH_POSTPROCESSING_EDGECENTERED
 	call_deferred("actor_setup")
+	print(get_tree().get_root().find_children("Destinations"))
 
 
 func actor_setup():
