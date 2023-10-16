@@ -52,7 +52,6 @@ texture = ExtResource("11_h60nl")
 [node name="Numpad" type="Popup"]
 initial_position = 1
 size = Vector2i(300, 400)
-visible = true
 theme = SubResource("Theme_4hmrv")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
