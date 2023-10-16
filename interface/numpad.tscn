@@ -25,6 +25,7 @@ Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/styles/hover = SubResource("StyleBoxTexture_ncg7w")
 Button/styles/normal = SubResource("StyleBoxTexture_81x65")
 Button/styles/pressed = SubResource("StyleBoxTexture_jq45f")
+VBoxContainer/constants/separation = 45
 
 [node name="Numpad" type="Popup"]
 initial_position = 1
@@ -56,6 +57,7 @@ theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="DisplayContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -77,19 +79,64 @@ text = "TEST"
 [node name="ButtonContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ButtonContainer"]
 layout_mode = 2
+columns = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer/HBoxContainer"]
+[node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 text = "1"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "5"
+
+[node name="Button6" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "9"
+
+[node name="ButtonB" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer"]
+[node name="Button11" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "0"
+
+[node name="ButtonC" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
