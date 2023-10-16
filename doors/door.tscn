@@ -101,6 +101,7 @@ collision_mask = 5
 script = ExtResource("1_vic2a")
 
 [node name="CharacterDetector" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_u7g7i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

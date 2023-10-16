@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl3ua00eim6ji"]
+[gd_scene load_steps=6 format=3 uid="uid://cl3ua00eim6ji"]
 
 [ext_resource type="PackedScene" uid="uid://cqaerv7e6dpn0" path="res://levels/template_level.tscn" id="1_gdxbr"]
 [ext_resource type="PackedScene" uid="uid://dgt7tdyor61nv" path="res://characters/npc/camera.tscn" id="2_wkdta"]
 [ext_resource type="PackedScene" uid="uid://dyd3v06tlo2mp" path="res://characters/npc/soldier.tscn" id="3_xqgew"]
 [ext_resource type="PackedScene" uid="uid://wyvlumqnewlu" path="res://doors/door.tscn" id="4_ky728"]
+[ext_resource type="PackedScene" uid="uid://k8pm3ghxopx" path="res://doors/locked_door.tscn" id="5_13a4y"]
 
 [node name="Level1" instance=ExtResource("1_gdxbr")]
 
@@ -75,15 +76,15 @@ rotation = -0.785398
 position = Vector2(-385, 131)
 rotation = 0.785398
 
-[node name="Door" parent="Doors" index="0" instance=ExtResource("4_ky728")]
-position = Vector2(-31, 97)
-
-[node name="Door4" parent="Doors" index="1" instance=ExtResource("4_ky728")]
+[node name="Door4" parent="Doors" index="0" instance=ExtResource("4_ky728")]
 position = Vector2(32, -287)
 
-[node name="Door2" parent="Doors" index="2" instance=ExtResource("4_ky728")]
+[node name="Door2" parent="Doors" index="1" instance=ExtResource("4_ky728")]
 position = Vector2(101, 354)
 rotation = -1.5708
 
-[node name="Door3" parent="Doors" index="3" instance=ExtResource("4_ky728")]
+[node name="Door3" parent="Doors" index="2" instance=ExtResource("4_ky728")]
 position = Vector2(-292, 97)
+
+[node name="LockedDoor" parent="LockedDoors" index="0" instance=ExtResource("5_13a4y")]
+position = Vector2(-32, 95)

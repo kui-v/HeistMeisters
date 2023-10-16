@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://k8pm3ghxopx"]
+
+[ext_resource type="PackedScene" uid="uid://wyvlumqnewlu" path="res://doors/door.tscn" id="1_26qpl"]
+[ext_resource type="Texture2D" uid="uid://crjuirg3udxyv" path="res://assets/GFX/PNG/Tiles/tile_463.png" id="2_4n7pm"]
+[ext_resource type="Script" path="res://doors/locked_door.gd" id="2_4sui3"]
+[ext_resource type="PackedScene" uid="uid://dq7axl1t78vde" path="res://interface/numpad.tscn" id="3_6crh2"]
+
+[node name="LockedDoor" instance=ExtResource("1_26qpl")]
+script = ExtResource("2_4sui3")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_4n7pm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+[node name="Numpad" parent="CanvasLayer" index="0" instance=ExtResource("3_6crh2")]
+
+[node name="Timer" type="Timer" parent="CanvasLayer" index="1"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="combination_correct" from="CanvasLayer/Numpad" to="." method="_on_numpad_combination_correct"]
+[connection signal="timeout" from="CanvasLayer/Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dq7axl1t78vde"]
+[gd_scene load_steps=28 format=3 uid="uid://dq7axl1t78vde"]
 
 [ext_resource type="Texture2D" uid="uid://chdy5dmfb1txa" path="res://assets/GFX/Interface/PNG/metalPanel.png" id="1_6pkqt"]
 [ext_resource type="FontFile" uid="uid://bqo0pqb33dgpb" path="res://assets/GFX/Interface/Fonts/kenvector_future.ttf" id="1_dxw6j"]
@@ -7,10 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c5kkt7q2d15i1" path="res://assets/GFX/Interface/PNG/metalPanel_blue.png" id="2_v3xta"]
 [ext_resource type="Texture2D" uid="uid://ddkhgb0wc0pds" path="res://assets/GFX/Interface/PNG/glassPanel.png" id="3_2kju4"]
 [ext_resource type="Texture2D" uid="uid://dca4j02mnkq1r" path="res://assets/GFX/Interface/PNG/metalPanel_yellow.png" id="3_prmj7"]
+[ext_resource type="Script" path="res://interface/numpad.gd" id="6_f2kop"]
 [ext_resource type="Texture2D" uid="uid://fhu0iv5llsai" path="res://assets/GFX/Interface/PNG/dotRed.png" id="8_olvjp"]
+[ext_resource type="Texture2D" uid="uid://cb3ja7aad53n" path="res://assets/GFX/Interface/PNG/dotBlue.png" id="9_d3sag"]
 [ext_resource type="Texture2D" uid="uid://d3hcwa8qx5uk3" path="res://assets/GFX/Interface/PNG/metalPanel_blueCorner.png" id="9_pg81k"]
 [ext_resource type="Texture2D" uid="uid://cmgf1h1wjlsxv" path="res://assets/GFX/Interface/PNG/metalPanel_redCorner.png" id="10_6ejo8"]
 [ext_resource type="Texture2D" uid="uid://oe6jcslexhqf" path="res://assets/GFX/Interface/PNG/metalPanel_yellowCorner.png" id="11_h60nl"]
+[ext_resource type="Texture2D" uid="uid://bqaqo0skmawkr" path="res://assets/GFX/Interface/PNG/dotYellow.png" id="13_y14tt"]
+[ext_resource type="Texture2D" uid="uid://dfxjvxp5nhypb" path="res://assets/GFX/Interface/PNG/dotGreen.png" id="15_k6kje"]
 
 [sub_resource type="FontVariation" id="FontVariation_afvdg"]
 base_font = ExtResource("1_sma06")
@@ -38,6 +42,7 @@ Button/styles/normal = SubResource("StyleBoxTexture_81x65")
 Button/styles/pressed = SubResource("StyleBoxTexture_jq45f")
 GridContainer/constants/h_separation = 12
 GridContainer/constants/v_separation = 12
+Label/colors/font_color = Color(0, 0, 0, 1)
 VBoxContainer/constants/separation = 30
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_duuyt"]
@@ -49,10 +54,80 @@ texture = ExtResource("10_6ejo8")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0dvqr"]
 texture = ExtResource("11_h60nl")
 
+[sub_resource type="Animation" id="Animation_lk7yg"]
+resource_name = "flash_input"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer/GridContainer/StatusLight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_y14tt"), ExtResource("13_y14tt"), ExtResource("9_d3sag")]
+}
+
+[sub_resource type="Animation" id="Animation_x14ga"]
+resource_name = "flash_correct"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer/GridContainer/StatusLight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("15_k6kje"), ExtResource("9_d3sag")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/DisplayContainer/DisplayTexture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.980392, 0.392157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jo7if"]
+resource_name = "flash_incorrect"
+length = 0.3
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer/GridContainer/StatusLight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 0.3, 0.3001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_olvjp"), ExtResource("9_d3sag"), ExtResource("9_d3sag")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lel03"]
+_data = {
+"flash_correct": SubResource("Animation_x14ga"),
+"flash_incorrect": SubResource("Animation_jo7if"),
+"flash_input": SubResource("Animation_lk7yg")
+}
+
 [node name="Numpad" type="Popup"]
 initial_position = 1
 size = Vector2i(300, 400)
 theme = SubResource("Theme_4hmrv")
+script = ExtResource("6_f2kop")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_right = 300.0
@@ -83,7 +158,7 @@ alignment = 1
 [node name="DisplayContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/DisplayContainer"]
+[node name="DisplayTexture" type="NinePatchRect" parent="MarginContainer/VBoxContainer/DisplayContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 texture = ExtResource("3_2kju4")
@@ -92,10 +167,11 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DisplayContainer"]
+[node name="Display" type="Label" parent="MarginContainer/VBoxContainer/DisplayContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,10 +225,10 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 text = "9"
 
-[node name="ButtonB" type="TextureRect" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
+[node name="StatusLight" type="TextureRect" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("8_olvjp")
+texture = ExtResource("13_y14tt")
 
 [node name="Button11" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -166,3 +242,11 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_duuyt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yftqe")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0dvqr")
 text = "OK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "flash_input"
+libraries = {
+"": SubResource("AnimationLibrary_lel03")
+}
+
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]
