@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl3ua00eim6ji"]
+[gd_scene load_steps=5 format=3 uid="uid://cl3ua00eim6ji"]
 
 [ext_resource type="PackedScene" uid="uid://cqaerv7e6dpn0" path="res://levels/template_level.tscn" id="1_gdxbr"]
 [ext_resource type="PackedScene" uid="uid://dgt7tdyor61nv" path="res://characters/npc/camera.tscn" id="2_wkdta"]
 [ext_resource type="PackedScene" uid="uid://dyd3v06tlo2mp" path="res://characters/npc/soldier.tscn" id="3_xqgew"]
+[ext_resource type="PackedScene" uid="uid://wyvlumqnewlu" path="res://doors/door.tscn" id="4_ky728"]
 
 [node name="Level1" instance=ExtResource("1_gdxbr")]
 
@@ -31,21 +32,27 @@ position = Vector2(-221, -474)
 position = Vector2(-352, -239)
 
 [node name="Destination6" type="Marker2D" parent="Destinations" index="6"]
-position = Vector2(-285, 33)
+position = Vector2(-366, -21)
 
-[node name="Destination7" type="Marker2D" parent="Destinations" index="7"]
+[node name="Destination12" type="Marker2D" parent="Destinations" index="7"]
+position = Vector2(-418, 408)
+
+[node name="Destination13" type="Marker2D" parent="Destinations" index="8"]
+position = Vector2(155, -103)
+
+[node name="Destination7" type="Marker2D" parent="Destinations" index="9"]
 position = Vector2(-352, 316)
 
-[node name="Destination8" type="Marker2D" parent="Destinations" index="8"]
+[node name="Destination8" type="Marker2D" parent="Destinations" index="10"]
 position = Vector2(-49, 352)
 
-[node name="Destination9" type="Marker2D" parent="Destinations" index="9"]
+[node name="Destination9" type="Marker2D" parent="Destinations" index="11"]
 position = Vector2(254, 44)
 
-[node name="Destination10" type="Marker2D" parent="Destinations" index="10"]
+[node name="Destination10" type="Marker2D" parent="Destinations" index="12"]
 position = Vector2(-154, -227)
 
-[node name="Destination11" type="Marker2D" parent="Destinations" index="11"]
+[node name="Destination11" type="Marker2D" parent="Destinations" index="13"]
 position = Vector2(-191, 344)
 
 [node name="Soldier" parent="Guards" index="0" instance=ExtResource("3_xqgew")]
@@ -67,3 +74,16 @@ rotation = -0.785398
 [node name="Camera3" parent="Cameras" index="2" instance=ExtResource("2_wkdta")]
 position = Vector2(-385, 131)
 rotation = 0.785398
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource("4_ky728")]
+position = Vector2(-31, 97)
+
+[node name="Door4" parent="Doors" index="1" instance=ExtResource("4_ky728")]
+position = Vector2(32, -287)
+
+[node name="Door2" parent="Doors" index="2" instance=ExtResource("4_ky728")]
+position = Vector2(101, 354)
+rotation = -1.5708
+
+[node name="Door3" parent="Doors" index="3" instance=ExtResource("4_ky728")]
+position = Vector2(-292, 97)
