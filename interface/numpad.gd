@@ -21,13 +21,11 @@ func connect_buttons():
 
 func button_pressed(text):
 	if text != "OK" and guess.size() < 4:
-		guess.push_back(int(text))
-		$AnimationPlayer.play("flash_input")
+		enter(int(text))
 	elif text == "OK":
 		check_guess()
-	else: # input more than 4 numbers
-		guess.clear()
-		$AnimationPlayer.play("flash_incorrect")
+	else:
+		reset_lock()
 	display_guess()
 
 
@@ -36,8 +34,17 @@ func check_guess():
 		combination_correct.emit()
 		$AnimationPlayer.play("flash_correct")
 	else:
-		$AnimationPlayer.play("flash_incorrect")
-		guess.clear()
+		reset_lock()
+
+
+func enter(num):
+	guess.push_back(num)
+	$AnimationPlayer.play("flash_input")
+
+
+func reset_lock():
+	$AnimationPlayer.play("flash_incorrect")
+	guess.clear()
 
 
 func display_guess():
