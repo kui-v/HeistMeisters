@@ -2,7 +2,7 @@ extends Popup
 
 signal combination_correct
 
-var combination : Array[int] = [0,4,5,1]
+@export var combination : Array[int] = [0,4,5,1]
 var guess : Array[int]
 
 @onready var display : Label = $MarginContainer/VBoxContainer/DisplayContainer/Display
@@ -20,7 +20,7 @@ func connect_buttons():
 
 
 func button_pressed(text):
-	if text != "OK" and guess.size() < 4:
+	if text != "OK" and guess.size() < combination.size():
 		enter(int(text))
 	elif text == "OK":
 		check_guess()
@@ -48,10 +48,7 @@ func reset_lock():
 
 
 func display_guess():
-	var displayed_text : String
-	for i in guess:
-		displayed_text += str(i)
-	display.text = displayed_text
+	display.text = "".join(guess)
 
 
 func _on_popup_hide():
