@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://dq7axl1t78vde"]
+
+[ext_resource type="Texture2D" uid="uid://chdy5dmfb1txa" path="res://assets/GFX/Interface/PNG/metalPanel.png" id="1_6pkqt"]
+[ext_resource type="FontFile" uid="uid://bqo0pqb33dgpb" path="res://assets/GFX/Interface/Fonts/kenvector_future.ttf" id="1_dxw6j"]
+[ext_resource type="Texture2D" uid="uid://b2oesojtjuhbm" path="res://assets/GFX/Interface/PNG/metalPanel_red.png" id="1_ykfvr"]
+[ext_resource type="Texture2D" uid="uid://c5kkt7q2d15i1" path="res://assets/GFX/Interface/PNG/metalPanel_blue.png" id="2_v3xta"]
+[ext_resource type="Texture2D" uid="uid://ddkhgb0wc0pds" path="res://assets/GFX/Interface/PNG/glassPanel.png" id="3_2kju4"]
+[ext_resource type="Texture2D" uid="uid://dca4j02mnkq1r" path="res://assets/GFX/Interface/PNG/metalPanel_yellow.png" id="3_prmj7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncg7w"]
+texture = ExtResource("1_ykfvr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81x65"]
+texture = ExtResource("2_v3xta")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq45f"]
+texture = ExtResource("3_prmj7")
+
+[sub_resource type="Theme" id="Theme_4hmrv"]
+default_font = ExtResource("1_dxw6j")
+default_font_size = 24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_ncg7w")
+Button/styles/normal = SubResource("StyleBoxTexture_81x65")
+Button/styles/pressed = SubResource("StyleBoxTexture_jq45f")
+
+[node name="Numpad" type="Popup"]
+initial_position = 1
+size = Vector2i(300, 400)
+visible = true
+theme = SubResource("Theme_4hmrv")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6pkqt")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="DisplayContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/DisplayContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+texture = ExtResource("3_2kju4")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DisplayContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TEST"
+
+[node name="ButtonContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ButtonContainer/VBoxContainer"]
+layout_mode = 2
