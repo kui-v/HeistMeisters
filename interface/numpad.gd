@@ -2,7 +2,7 @@ extends Popup
 
 signal combination_correct
 
-@export var combination : Array[int] = [0,4,5,1]
+@export var combination : Array[int]
 var guess : Array[int]
 
 @onready var display : Label = $MarginContainer/VBoxContainer/DisplayContainer/Display
@@ -37,7 +37,7 @@ func check_guess():
 		reset_lock()
 
 
-func enter(num):
+func enter(num : int):
 	guess.push_back(num)
 	$AnimationPlayer.play("flash_input")
 
