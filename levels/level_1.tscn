@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl3ua00eim6ji"]
+[gd_scene load_steps=8 format=3 uid="uid://cl3ua00eim6ji"]
 
 [ext_resource type="PackedScene" uid="uid://cqaerv7e6dpn0" path="res://levels/template_level.tscn" id="1_gdxbr"]
 [ext_resource type="PackedScene" uid="uid://dgt7tdyor61nv" path="res://characters/npc/camera.tscn" id="2_wkdta"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wyvlumqnewlu" path="res://doors/door.tscn" id="4_ky728"]
 [ext_resource type="PackedScene" uid="uid://k8pm3ghxopx" path="res://doors/locked_door.tscn" id="5_13a4y"]
 [ext_resource type="PackedScene" uid="uid://bi8qw08c6deqh" path="res://computer/computer.tscn" id="6_tutrv"]
+[ext_resource type="PackedScene" uid="uid://d03aafyyu13p1" path="res://loot/briefcase.tscn" id="7_4efbh"]
 
 [node name="Level1" instance=ExtResource("1_gdxbr")]
 
@@ -93,5 +94,8 @@ position = Vector2(-32, 95)
 [node name="Computer" parent="Computers" index="0" instance=ExtResource("6_tutrv")]
 position = Vector2(-88, -41)
 rotation = 1.5708
+
+[node name="Briefcase" parent="Loot" index="0" instance=ExtResource("7_4efbh")]
+position = Vector2(-182, -467)
 
 [connection signal="door_combination" from="Computers/Computer" to="LockedDoors/LockedDoor" method="_on_computer_door_combination"]

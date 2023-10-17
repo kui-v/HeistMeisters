@@ -13,10 +13,10 @@ var is_disguised : bool = false
 @export var disguise_slowdown : float = 0
 @export var num_disguises : int = 3
 
-
 func _ready():
 	reveal()
 	$DisguiseTimer.wait_time = disguise_duration
+	get_tree().call_group("disguise_display", "update_disguises", num_disguises)
 
 
 func _physics_process(delta):
@@ -82,7 +82,15 @@ func disguise():
 	velocity_multiplier = disguise_slowdown
 	is_disguised = true
 	collision_layer = 16 #currently nothing set here
+	
+	get_tree().call_group("disguise_display", "update_disguises", num_disguises)
 
 
 func _on_timer_timeout():
 	reveal()
+
+
+func collect_briefcase():
+	var loot : Node = Node.new()
+	loot.set_name("Briefcase")
+	add_child(loot)

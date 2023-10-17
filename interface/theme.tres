@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://xtpfuybs7dvj"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://xtpfuybs7dvj"]
 
 [ext_resource type="FontFile" uid="uid://cxlqjqy14a2gb" path="res://assets/GFX/Interface/Fonts/kenvector_future_thin.ttf" id="1_dvdkm"]
 [ext_resource type="Texture2D" uid="uid://b2oesojtjuhbm" path="res://assets/GFX/Interface/PNG/metalPanel_red.png" id="2_a5fso"]
@@ -18,6 +18,20 @@ texture = ExtResource("3_cesp0")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq45f"]
 texture = ExtResource("4_ok6i3")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ci227"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yid0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gijs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkmjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lr3ji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qc2m6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob6om"]
+
 [resource]
 default_font = ExtResource("5_rpair")
 default_font_size = 24
@@ -32,5 +46,12 @@ Button/styles/normal = SubResource("StyleBoxTexture_81x65")
 Button/styles/pressed = SubResource("StyleBoxTexture_jq45f")
 GridContainer/constants/h_separation = 12
 GridContainer/constants/v_separation = 12
+ItemList/styles/cursor = SubResource("StyleBoxEmpty_ci227")
+ItemList/styles/cursor_unfocused = SubResource("StyleBoxEmpty_yid0o")
+ItemList/styles/focus = SubResource("StyleBoxEmpty_3gijs")
+ItemList/styles/hovered = SubResource("StyleBoxEmpty_bkmjn")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_lr3ji")
+ItemList/styles/selected = SubResource("StyleBoxEmpty_qc2m6")
+ItemList/styles/selected_focus = SubResource("StyleBoxEmpty_ob6om")
 Label/colors/font_color = Color(0, 0, 0, 1)
 VBoxContainer/constants/separation = 30
