@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://ej1kkic26ttg"]
+
+[ext_resource type="Theme" uid="uid://xtpfuybs7dvj" path="res://interface/theme.tres" id="1_k5bw2"]
+[ext_resource type="Texture2D" uid="uid://b2oesojtjuhbm" path="res://assets/GFX/Interface/PNG/metalPanel_red.png" id="2_bwbbm"]
+[ext_resource type="Script" path="res://interface/victory.gd" id="2_gcd7u"]
+[ext_resource type="FontFile" uid="uid://cxlqjqy14a2gb" path="res://assets/GFX/Interface/Fonts/kenvector_future_thin.ttf" id="4_ljsjy"]
+[ext_resource type="Texture2D" uid="uid://cmbpq8ifylkgs" path="res://assets/GFX/Interface/PNG/barHorizontal_shadow_left.png" id="5_42iu3"]
+[ext_resource type="Texture2D" uid="uid://bgqrwfhmetksy" path="res://assets/GFX/Interface/PNG/barHorizontal_shadow_mid.png" id="6_2mnfh"]
+[ext_resource type="Texture2D" uid="uid://evuv6ucte2eb" path="res://assets/GFX/Interface/PNG/barHorizontal_shadow_right.png" id="7_iqhsf"]
+[ext_resource type="FontFile" uid="uid://bqo0pqb33dgpb" path="res://assets/GFX/Interface/Fonts/kenvector_future.ttf" id="8_coerm"]
+[ext_resource type="Texture2D" uid="uid://dca4j02mnkq1r" path="res://assets/GFX/Interface/PNG/metalPanel_yellow.png" id="8_mfv1b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekujj"]
+texture = ExtResource("8_mfv1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adxh8"]
+texture = ExtResource("8_mfv1b")
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k5bw2")
+script = ExtResource("2_gcd7u")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("2_bwbbm")
+patch_margin_left = 12
+patch_margin_top = 40
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="WelcomeLabel" type="Label" parent="CenterContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ljsjy")
+text = "you have just won"
+horizontal_alignment = 1
+
+[node name="Split" type="HBoxContainer" parent="CenterContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="LeftBar" type="TextureRect" parent="CenterContainer/Background/MarginContainer/VBoxContainer/Split"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("5_42iu3")
+expand_mode = 2
+
+[node name="MiddleBar" type="TextureRect" parent="CenterContainer/Background/MarginContainer/VBoxContainer/Split"]
+custom_minimum_size = Vector2(200, 12)
+layout_mode = 2
+texture = ExtResource("6_2mnfh")
+expand_mode = 2
+
+[node name="RightBar" type="TextureRect" parent="CenterContainer/Background/MarginContainer/VBoxContainer/Split"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("7_iqhsf")
+expand_mode = 2
+
+[node name="HeistMesitersLabel" type="Label" parent="CenterContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_coerm")
+theme_override_font_sizes/font_size = 36
+text = "Heist meisters"
+horizontal_alignment = 1
+
+[node name="Split2" type="HBoxContainer" parent="CenterContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="LeftBar" type="TextureRect" parent="CenterContainer/Background/MarginContainer/VBoxContainer/Split2"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("5_42iu3")
+expand_mode = 2
+
+[node name="MiddleBar" type="TextureRect" parent="CenterContainer/Background/MarginContainer/VBoxContainer/Split2"]
+custom_minimum_size = Vector2(200, 12)
+layout_mode = 2
+texture = ExtResource("6_2mnfh")
+expand_mode = 2
+
+[node name="RightBar" type="TextureRect" parent="CenterContainer/Background/MarginContainer/VBoxContainer/Split2"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("7_iqhsf")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer/Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 21
+columns = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ekujj")
+text = "         "
+
+[node name="Label" type="Label" parent="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "restart mission"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_adxh8")
+
+[node name="Label2" type="Label" parent="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "quit game"
+
+[connection signal="pressed" from="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer/GridContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Background/MarginContainer/VBoxContainer/CenterContainer/GridContainer/QuitButton" to="." method="_on_quit_button_pressed"]
