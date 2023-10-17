@@ -1,14 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://rdp7xju3343"]
+[gd_scene load_steps=5 format=3 uid="uid://rdp7xju3343"]
 
 [ext_resource type="PackedScene" uid="uid://r7ssx37dnral" path="res://characters/template_character.tscn" id="1_t2wu0"]
 [ext_resource type="Script" path="res://characters/player.gd" id="2_5i0sy"]
 [ext_resource type="Texture2D" uid="uid://bbaf18r43fhui" path="res://assets/GFX/PNG/Hitman 1/hitman1_stand.png" id="3_6bx1m"]
+[ext_resource type="Theme" uid="uid://xtpfuybs7dvj" path="res://interface/theme.tres" id="4_7tsq7"]
 
 [node name="Player" instance=ExtResource("1_t2wu0")]
 collision_mask = 15
 script = ExtResource("2_5i0sy")
+disguise_duration = 5
+disguise_slowdown = 0.0
+num_disguises = 3
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_6bx1m")
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+energy = 0.3
+texture = ExtResource("3_6bx1m")
+
+[node name="DisguiseTimer" type="Timer" parent="." index="5"]
+wait_time = 5.0
+one_shot = true
+
+[node name="DisguiseLabel" type="Label" parent="." index="6"]
+offset_left = -34.0
+offset_top = 25.0
+offset_right = 34.0
+offset_bottom = 55.0
+theme = ExtResource("4_7tsq7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[connection signal="timeout" from="DisguiseTimer" to="." method="_on_timer_timeout"]

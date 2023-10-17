@@ -1723,6 +1723,7 @@ tile_set = SubResource("TileSet_b1eab")
 format = 2
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_w1dca")]
+num_disguises = 3
 
 [node name="Destinations" type="Node" parent="." groups=["Destinations"]]
 
