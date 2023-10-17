@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bbaf18r43fhui" path="res://assets/GFX/PNG/Hitman 1/hitman1_stand.png" id="3_6bx1m"]
 
 [node name="Player" instance=ExtResource("1_t2wu0")]
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("2_5i0sy")
 
 [node name="Sprite2D" parent="." index="0"]

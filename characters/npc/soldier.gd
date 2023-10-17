@@ -22,7 +22,6 @@ func _ready():
 	navigation_agent.target_desired_distance = 4.0
 	navigation_agent.path_postprocessing = NavigationPathQueryParameters2D.PATH_POSTPROCESSING_EDGECENTERED
 	call_deferred("actor_setup")
-	print(get_tree().get_root().find_children("Destinations"))
 
 
 func actor_setup():

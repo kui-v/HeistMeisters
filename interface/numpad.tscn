@@ -1,12 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://dq7axl1t78vde"]
+[gd_scene load_steps=21 format=3 uid="uid://dq7axl1t78vde"]
 
 [ext_resource type="Texture2D" uid="uid://chdy5dmfb1txa" path="res://assets/GFX/Interface/PNG/metalPanel.png" id="1_6pkqt"]
-[ext_resource type="FontFile" uid="uid://bqo0pqb33dgpb" path="res://assets/GFX/Interface/Fonts/kenvector_future.ttf" id="1_dxw6j"]
-[ext_resource type="FontFile" uid="uid://cxlqjqy14a2gb" path="res://assets/GFX/Interface/Fonts/kenvector_future_thin.ttf" id="1_sma06"]
-[ext_resource type="Texture2D" uid="uid://b2oesojtjuhbm" path="res://assets/GFX/Interface/PNG/metalPanel_red.png" id="1_ykfvr"]
-[ext_resource type="Texture2D" uid="uid://c5kkt7q2d15i1" path="res://assets/GFX/Interface/PNG/metalPanel_blue.png" id="2_v3xta"]
+[ext_resource type="Theme" uid="uid://xtpfuybs7dvj" path="res://interface/theme.tres" id="1_hv2hn"]
 [ext_resource type="Texture2D" uid="uid://ddkhgb0wc0pds" path="res://assets/GFX/Interface/PNG/glassPanel.png" id="3_2kju4"]
-[ext_resource type="Texture2D" uid="uid://dca4j02mnkq1r" path="res://assets/GFX/Interface/PNG/metalPanel_yellow.png" id="3_prmj7"]
 [ext_resource type="Script" path="res://interface/numpad.gd" id="6_f2kop"]
 [ext_resource type="Texture2D" uid="uid://fhu0iv5llsai" path="res://assets/GFX/Interface/PNG/dotRed.png" id="8_olvjp"]
 [ext_resource type="Texture2D" uid="uid://cb3ja7aad53n" path="res://assets/GFX/Interface/PNG/dotBlue.png" id="9_d3sag"]
@@ -18,35 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dfxjvxp5nhypb" path="res://assets/GFX/Interface/PNG/dotGreen.png" id="15_k6kje"]
 [ext_resource type="AudioStream" uid="uid://behob784b58yx" path="res://assets/SFX/threeTone1.ogg" id="16_eipbm"]
 
-[sub_resource type="FontVariation" id="FontVariation_afvdg"]
-base_font = ExtResource("1_sma06")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncg7w"]
-texture = ExtResource("1_ykfvr")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81x65"]
-texture = ExtResource("2_v3xta")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq45f"]
-texture = ExtResource("3_prmj7")
-
-[sub_resource type="Theme" id="Theme_4hmrv"]
-default_font = ExtResource("1_dxw6j")
-default_font_size = 24
-Button/colors/font_color = Color(0, 0, 0, 1)
-Button/colors/font_focus_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/font_sizes/font_size = 18
-Button/fonts/font = SubResource("FontVariation_afvdg")
-Button/styles/hover = SubResource("StyleBoxTexture_ncg7w")
-Button/styles/normal = SubResource("StyleBoxTexture_81x65")
-Button/styles/pressed = SubResource("StyleBoxTexture_jq45f")
-GridContainer/constants/h_separation = 12
-GridContainer/constants/v_separation = 12
-Label/colors/font_color = Color(0, 0, 0, 1)
-VBoxContainer/constants/separation = 30
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_duuyt"]
 texture = ExtResource("9_pg81k")
 
@@ -55,38 +22,6 @@ texture = ExtResource("10_6ejo8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0dvqr"]
 texture = ExtResource("11_h60nl")
-
-[sub_resource type="Animation" id="Animation_lk7yg"]
-resource_name = "flash_input"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer/GridContainer/StatusLight:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("9_d3sag"), ExtResource("13_y14tt"), ExtResource("13_y14tt"), ExtResource("9_d3sag")]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("15_43gw0")
-}],
-"times": PackedFloat32Array(-0.07)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_x14ga"]
 resource_name = "flash_correct"
@@ -149,6 +84,38 @@ tracks/0/keys = {
 "values": [ExtResource("8_olvjp"), ExtResource("9_d3sag"), ExtResource("9_d3sag")]
 }
 
+[sub_resource type="Animation" id="Animation_lk7yg"]
+resource_name = "flash_input"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/ButtonContainer/GridContainer/StatusLight:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_d3sag"), ExtResource("13_y14tt"), ExtResource("13_y14tt"), ExtResource("9_d3sag")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_43gw0")
+}],
+"times": PackedFloat32Array(-0.07)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lel03"]
 _data = {
 "flash_correct": SubResource("Animation_x14ga"),
@@ -159,7 +126,7 @@ _data = {
 [node name="Numpad" type="Popup"]
 initial_position = 1
 size = Vector2i(300, 400)
-theme = SubResource("Theme_4hmrv")
+theme = ExtResource("1_hv2hn")
 script = ExtResource("6_f2kop")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

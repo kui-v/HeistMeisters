@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://xtpfuybs7dvj"]
+
+[ext_resource type="FontFile" uid="uid://cxlqjqy14a2gb" path="res://assets/GFX/Interface/Fonts/kenvector_future_thin.ttf" id="1_dvdkm"]
+[ext_resource type="Texture2D" uid="uid://b2oesojtjuhbm" path="res://assets/GFX/Interface/PNG/metalPanel_red.png" id="2_a5fso"]
+[ext_resource type="Texture2D" uid="uid://c5kkt7q2d15i1" path="res://assets/GFX/Interface/PNG/metalPanel_blue.png" id="3_cesp0"]
+[ext_resource type="Texture2D" uid="uid://dca4j02mnkq1r" path="res://assets/GFX/Interface/PNG/metalPanel_yellow.png" id="4_ok6i3"]
+[ext_resource type="FontFile" uid="uid://bqo0pqb33dgpb" path="res://assets/GFX/Interface/Fonts/kenvector_future.ttf" id="5_rpair"]
+
+[sub_resource type="FontVariation" id="FontVariation_afvdg"]
+base_font = ExtResource("1_dvdkm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncg7w"]
+texture = ExtResource("2_a5fso")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81x65"]
+texture = ExtResource("3_cesp0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq45f"]
+texture = ExtResource("4_ok6i3")
+
+[resource]
+default_font = ExtResource("5_rpair")
+default_font_size = 24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 18
+Button/fonts/font = SubResource("FontVariation_afvdg")
+Button/styles/hover = SubResource("StyleBoxTexture_ncg7w")
+Button/styles/normal = SubResource("StyleBoxTexture_81x65")
+Button/styles/pressed = SubResource("StyleBoxTexture_jq45f")
+GridContainer/constants/h_separation = 12
+GridContainer/constants/v_separation = 12
+Label/colors/font_color = Color(0, 0, 0, 1)
+VBoxContainer/constants/separation = 30

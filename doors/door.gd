@@ -7,7 +7,6 @@ func _on_body_entered(body):
 	if body.collision_layer == 1:  #player set to collision layer 1
 		can_click = true
 	else:
-		print("opened")
 		open()
 
 

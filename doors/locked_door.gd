@@ -27,7 +27,7 @@ func _on_timer_timeout():
 
 
 func generate_combination():
-	var combo_length : int = 4
+	var combo_length : int = 8
 	var combination = CombinationGenerator.generate_combinations(combo_length)
 	$CanvasLayer/Numpad.combination = combination
 	print(str(combination))

@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg2emmsyalwns"]
+
+[ext_resource type="Texture2D" uid="uid://bf7rte4bn24o2" path="res://assets/GFX/Interface/PNG/metalPanel_plate.png" id="1_klxa6"]
+[ext_resource type="Theme" uid="uid://xtpfuybs7dvj" path="res://interface/theme.tres" id="1_wkebm"]
+[ext_resource type="Texture2D" uid="uid://ddkhgb0wc0pds" path="res://assets/GFX/Interface/PNG/glassPanel.png" id="2_ehkp8"]
+[ext_resource type="Texture2D" uid="uid://dfxjvxp5nhypb" path="res://assets/GFX/Interface/PNG/dotGreen.png" id="3_dgi63"]
+
+[node name="ComputerPopup" type="Popup"]
+size = Vector2i(640, 480)
+theme = ExtResource("1_wkebm")
+
+[node name="Monitor" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_klxa6")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ehkp8")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+text = "Test"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -35.0
+offset_right = -16.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_dgi63")
