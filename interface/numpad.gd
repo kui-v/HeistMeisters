@@ -3,15 +3,17 @@ extends Popup
 signal combination_correct
 
 @export var combination : Array[int]
+@export var door_id : String
 var guess : Array[int]
 
 @onready var display : Label = $MarginContainer/VBoxContainer/DisplayContainer/Display
+@onready var door_id_display : Label = $NinePatchRect/DoorID
 @onready var status : TextureRect = $MarginContainer/VBoxContainer/ButtonContainer/GridContainer/StatusLight
 @onready var buttons : GridContainer = $MarginContainer/VBoxContainer/ButtonContainer/GridContainer
 
 func _ready():
 	connect_buttons()
-
+	door_id_display.text = door_id
 
 func connect_buttons():
 	for child in buttons.get_children():
@@ -54,3 +56,7 @@ func display_guess():
 func _on_popup_hide():
 	guess.clear()
 	display.text = ""
+
+
+func set_door_id():
+	door_id_display.text = door_id

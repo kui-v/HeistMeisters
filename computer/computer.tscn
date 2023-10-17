@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi8qw08c6deqh"]
+[gd_scene load_steps=6 format=3 uid="uid://bi8qw08c6deqh"]
 
 [ext_resource type="Texture2D" uid="uid://qcnn7pex17l7" path="res://assets/GFX/PNG/Tiles/tile_537.png" id="1_fyvg1"]
 [ext_resource type="Script" path="res://computer/computer.gd" id="1_tkcm0"]
 [ext_resource type="PackedScene" uid="uid://bg2emmsyalwns" path="res://interface/computer_popup.tscn" id="3_8sord"]
+[ext_resource type="Texture2D" uid="uid://cylxleklyju68" path="res://assets/GFX/PNG/Tiles/tile_519.png" id="4_cmrng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0343s"]
 size = Vector2(64, 64)
@@ -25,6 +26,12 @@ shape = SubResource("RectangleShape2D_0343s")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ComputerPopup" parent="CanvasLayer" instance=ExtResource("3_8sord")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(32, 2.08165e-12)
+rotation = 1.5708
+enabled = false
+texture = ExtResource("4_cmrng")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

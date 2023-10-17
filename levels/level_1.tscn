@@ -87,9 +87,11 @@ rotation = -1.5708
 [node name="Door3" parent="Doors" index="2" instance=ExtResource("4_ky728")]
 position = Vector2(-292, 97)
 
-[node name="LockedDoor" parent="LockedDoors" index="0" instance=ExtResource("5_13a4y")]
-position = Vector2(-32, 95)
-
 [node name="Computer" parent="Computers" index="0" instance=ExtResource("6_tutrv")]
 position = Vector2(-88, -41)
 rotation = 1.5708
+
+[node name="LockedDoor" parent="LockedDoors" index="0" instance=ExtResource("5_13a4y")]
+position = Vector2(-32, 95)
+
+[connection signal="door_combination" from="Computers/Computer" to="LockedDoors/LockedDoor" method="_on_computer_door_combination"]

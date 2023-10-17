@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg2emmsyalwns"]
+[gd_scene load_steps=6 format=3 uid="uid://bg2emmsyalwns"]
 
 [ext_resource type="Texture2D" uid="uid://bf7rte4bn24o2" path="res://assets/GFX/Interface/PNG/metalPanel_plate.png" id="1_klxa6"]
 [ext_resource type="Theme" uid="uid://xtpfuybs7dvj" path="res://interface/theme.tres" id="1_wkebm"]
 [ext_resource type="Texture2D" uid="uid://ddkhgb0wc0pds" path="res://assets/GFX/Interface/PNG/glassPanel.png" id="2_ehkp8"]
+[ext_resource type="Script" path="res://interface/computer_popup.gd" id="2_uhts0"]
 [ext_resource type="Texture2D" uid="uid://dfxjvxp5nhypb" path="res://assets/GFX/Interface/PNG/dotGreen.png" id="3_dgi63"]
 
 [node name="ComputerPopup" type="Popup"]
 size = Vector2i(640, 480)
 theme = ExtResource("1_wkebm")
+script = ExtResource("2_uhts0")
 
 [node name="Monitor" type="NinePatchRect" parent="."]
 anchors_preset = 15
@@ -41,9 +43,12 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -51,7 +56,8 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
-text = "Test"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 3

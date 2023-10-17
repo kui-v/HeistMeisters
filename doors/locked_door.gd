@@ -3,10 +3,6 @@ extends "res://doors/door.gd"
 @onready var timer = $CanvasLayer/Timer
 
 
-func _ready():
-	generate_combination()
-
-
 func _on_body_exited(body):
 	if body.collision_layer == 1:
 		can_click = false
@@ -22,12 +18,12 @@ func _on_numpad_combination_correct():
 	open()
 	timer.start()
 
+
 func _on_timer_timeout():
 	$CanvasLayer/Numpad.hide()
 
 
-func generate_combination():
-	var combo_length : int = 8
-	var combination = CombinationGenerator.generate_combinations(combo_length)
+func _on_computer_door_combination(combination, door_id):
 	$CanvasLayer/Numpad.combination = combination
-	print(str(combination))
+	$CanvasLayer/Numpad.door_id = door_id
+	$CanvasLayer/Numpad.set_door_id()
