@@ -98,4 +98,10 @@ rotation = 1.5708
 [node name="Briefcase" parent="Loot" index="0" instance=ExtResource("7_4efbh")]
 position = Vector2(-182, -467)
 
+[node name="Exit" parent="." index="12"]
+offset_left = -129.0
+offset_top = -18.0
+offset_right = 71.0
+offset_bottom = 82.0
+
 [connection signal="door_combination" from="Computers/Computer" to="LockedDoors/LockedDoor" method="_on_computer_door_combination"]
