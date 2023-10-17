@@ -12,6 +12,7 @@ const WHITE : Color = Color(1.0,1.0,1.0)
 func _process(delta):
 	if Player_in_fov() and Player_in_los():
 		$Torch.color = RED
+		get_tree().call_group("suspicion_meter", "player_seen")
 	else:
 		$Torch.color = WHITE
 

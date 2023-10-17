@@ -1,5 +1,11 @@
 extends "res://characters/template_character.gd"
 
+const PLAYER_SPRITE : String = "res://assets/GFX/PNG/Hitman 1/hitman1_stand.png"
+const BOX_SPRITE : String = "res://assets/GFX/PNG/Tiles/tile_130.png"
+const PLAYER_OCCLUDER : String = "res://characters/human_occluder.tres"
+const BOX_OCCLUDER : String = "res://characters/box_occluder.tres"
+var is_disguised : bool = false
+
 
 func _physics_process(delta):
 	update_movement()
@@ -26,3 +32,26 @@ func update_movement():
 func _input(event):
 	if Input.is_action_just_pressed("toggle_vision_mode"):
 		get_tree().call_group("Interface", "cycle_vision_mode")
+	if Input.is_action_just_pressed("toggle_disguise"):
+		toggle_disguise()
+
+
+func toggle_disguise():
+	if is_disguised:
+		reveal()
+	else:
+		disguise()
+
+
+func reveal():
+	$Sprite2D.texture = load(PLAYER_SPRITE)
+	is_disguised = false
+	collision_layer = 1
+	$LightOccluder2D.occluder = load(PLAYER_OCCLUDER)
+
+
+func disguise():
+	$Sprite2D.texture = load(BOX_SPRITE)
+	is_disguised = true
+	collision_layer = 16 #currently nothing set here
+	$LightOccluder2D.occluder = load(BOX_OCCLUDER)

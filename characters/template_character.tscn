@@ -2,12 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://3c2y48k4ypje" path="res://assets/GFX/PNG/Man Red/manRed_stand.png" id="1_hmq7w"]
 [ext_resource type="Script" path="res://characters/template_character.gd" id="1_ormqf"]
+[ext_resource type="OccluderPolygon2D" uid="uid://dyhrfbs631fgb" path="res://characters/human_occluder.tres" id="3_a5j3n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kf3tf"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hqyqq"]
-cull_mode = 1
-polygon = PackedVector2Array(-9, -19, -12, -15, -12, -10, -12, 7, -12, 14, -9, 19, -2, 22, 5, 20, 7, 16, 9, 8, 9, 0, 9, -7, 8, -15, 4, -20, 0, -22, -5, -22)
 
 [node name="TemplateCharacter" type="CharacterBody2D"]
 script = ExtResource("1_ormqf")
@@ -20,4 +17,4 @@ position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_kf3tf")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_hqyqq")
+occluder = ExtResource("3_a5j3n")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1df6cp7girqv"]
+
+[ext_resource type="Theme" uid="uid://xtpfuybs7dvj" path="res://interface/theme.tres" id="1_rubey"]
+[ext_resource type="Texture2D" uid="uid://c1vf0j8txkq3w" path="res://assets/GFX/Interface/PNG/glassPanel_cornerTL.png" id="2_txxdr"]
+[ext_resource type="Texture2D" uid="uid://cqjxqjx1bshcy" path="res://assets/GFX/Interface/PNG/dot_shadow.png" id="3_oyj1u"]
+[ext_resource type="Texture2D" uid="uid://bqaqo0skmawkr" path="res://assets/GFX/Interface/PNG/dotYellow.png" id="4_jog8w"]
+[ext_resource type="Script" path="res://interface/SuspicionMeter.gd" id="5_d47dh"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_rubey")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -113.0
+offset_right = -12.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_txxdr")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="SuspicionLabel" type="Label" parent="Control/NinePatchRect/MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Suspicion"
+
+[node name="SuspicionMeter" type="TextureProgressBar" parent="Control/NinePatchRect/MarginContainer/CenterContainer/HBoxContainer" groups=["suspicion_meter"]]
+layout_mode = 2
+size_flags_horizontal = 3
+fill_mode = 4
+texture_under = ExtResource("3_oyj1u")
+texture_progress = ExtResource("4_jog8w")
+script = ExtResource("5_d47dh")
