@@ -28,12 +28,14 @@ func dark_mode():
 	color = DARK
 	audio.stream = load("res://assets/SFX/nightvision_off.wav")
 	audio.play()
+	get_tree().call_group("lights", "show")
 
 
 func night_vision_mode():
 	color = NIGHT_VISION
 	audio.stream = load("res://assets/SFX/nightvision.wav")
 	audio.play()
+	get_tree().call_group("lights", "hide")
 
 
 func _on_vision_cooldown_timeout():
